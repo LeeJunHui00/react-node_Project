@@ -25,6 +25,8 @@ app.get("/", (req, res) => {
     res.send("Hello World! auto restart");
 });
 
+// 회원 가입 위해 필요한 정보들을 client 에서 가져오면
+// 그것들을 데이터 베이스에 넣어준다.
 app.post("/register", (req, res) => {
     const user = new User(req.body);
     user.save((err, userInfo) => {
@@ -34,8 +36,6 @@ app.post("/register", (req, res) => {
         });
     });
 });
-// 회원 가입 위해 필요한 정보들을 client 에서 가져오면
-// 그것들을 데이터 베이스에 넣어준다.
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
